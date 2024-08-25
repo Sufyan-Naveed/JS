@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Loan Calculator</title>
+</head>
+<body>
+
+<script>
+    // Loan amount in dollars
+    var principal = 25000; // The total loan amount for the car
+
+    // Annual interest rate in percentage
+    var annualInterestRate = 5; // Annual interest rate of 5%
+
+    // Loan term in years
+    var years = 5; // Loan duration of 5 years
+
+    // Convert annual interest rate to monthly and decimal
+    var monthlyInterestRate = (annualInterestRate / 100) / 12; // Dividing by 100 to convert percentage to decimal and by 12 for monthly rate
+
+    // Total number of payments (months)
+    var numberOfPayments = years * 12; // Multiplying years by 12 to get total months
+
+    // Calculate monthly payment using the formula
+    var numerator = principal * monthlyInterestRate; // Multiplying principal by monthly interest rate
+    var denominator = 1 - (1 + monthlyInterestRate) ** (-numberOfPayments); // Calculating the denominator part of the formula using exponentiation
+
+    var monthlyPayment = numerator / denominator; // Dividing numerator by denominator to get monthly payment
+
+    // Calculate total payment over the entire term
+    var totalPayment = monthlyPayment * numberOfPayments; // Multiplying monthly payment by total number of payments
+
+    // Calculate total interest paid
+    var totalInterest = totalPayment - principal; // Subtracting principal from total payment to get total interest
+
+    // Display the results
+    alert("Monthly Payment: $" + monthlyPayment.toFixed(2)); // Logs monthly payment rounded to 2 decimal places
+    alert("Total Payment: $" + totalPayment.toFixed(2)); // Logs total payment rounded to 2 decimal places
+    alert("Total Interest Paid: $" + totalInterest.toFixed(2)); // Logs total interest paid rounded to 2 decimal places
+</script>
+
+</body>
+</html>
